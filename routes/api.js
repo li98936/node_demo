@@ -13,35 +13,35 @@ router.get('/test', function(req, res, next) {
         .then(function (response) {
             console.log(response);
             data.push(response.data);
+            axios.get(url2)
+                .then(function (response) {
+                    console.log(response);
+                    data.push(response.data);
+                    axios.get(url3)
+                        .then(function (response) {
+                            console.log(response);
+                            data.push(response.data);
+                            axios.get(url4)
+                                .then(function (response) {
+                                    console.log(response);
+                                    data.push(response.data);                         
+                                    res.send(data);
+                                })
+                                .catch(function (error) {
+                                    console.log(error);
+                                });
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         })
         .catch(function (error) {
             console.log(error);
         });
-    axios.get(url2)
-        .then(function (response) {
-            console.log(response);
-            data.push(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    axios.get(url3)
-        .then(function (response) {
-            console.log(response);
-            data.push(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    axios.get(url4)
-        .then(function (response) {
-            console.log(response);
-            data.push(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    res.send(data);
 });
  
 module.exports = router;
