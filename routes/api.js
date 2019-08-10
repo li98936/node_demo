@@ -41,7 +41,7 @@ router.get('/test', function(req, res, next) {
         .catch(function (error) {
             console.log(error);
         });
-    res.send(response.data);
+    res.send(data);
 });
  
 module.exports = router;
