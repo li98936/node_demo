@@ -11,19 +11,19 @@ router.get('/test', function(req, res, next) {
     var data = []
     axios.get(url1)
         .then(function (response) {
-            console.log(response);
+//             console.log(response);
             data.push(response.data);
             axios.get(url2)
                 .then(function (response) {
-                    console.log(response);
+        //             console.log(response);
                     data.push(response.data);
                     axios.get(url3)
                         .then(function (response) {
-                            console.log(response);
+                //             console.log(response);
                             data.push(response.data);
                             axios.get(url4)
                                 .then(function (response) {
-                                    console.log(response);
+                        //             console.log(response);
                                     data.push(response.data);                         
                                     res.send(data);
                                 })
